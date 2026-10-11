@@ -1,0 +1,2 @@
+model,accuracy,f1
+URL-only Random Forest,0.9959,0.9964295044848908
