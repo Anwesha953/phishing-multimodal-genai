@@ -1,0 +1,2 @@
+model,accuracy,f1
+Text-only TF-IDF + Logistic Regression,0.9850755360623782,0.9850737103258598
