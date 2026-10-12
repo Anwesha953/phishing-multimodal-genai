@@ -39,6 +39,23 @@ def pick(urls, seed=42):
         out.append(u)
     return out
 
+def make_driver():
+    opts = Options()
+    for a in ['--headless=new', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--window-size=1280,1024']:
+        opts.add_argument(a)
+    opts.binary_location = '/usr/bin/google-chrome'
+    d = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
+    d.set_page_load_timeout(12)
+    d.set_script_timeout(10)
+    return d
+
+def alive(d):
+    try:
+        d.title
+        return True
+    except Exception:
+        return False
+
 def grab(driver, u, label, idx):
     driver.get(u)
     time.sleep(1.5)
@@ -61,14 +78,8 @@ if __name__ == '__main__':
     todo = [u for u in cands if u not in attempted][:attempts]
     print('Candidates:', len(cands), '| trying now:', len(todo))
 
-    opts = Options()
-    for a in ['--headless=new', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--window-size=1280,1024']:
-        opts.add_argument(a)
-    opts.binary_location = '/usr/bin/google-chrome'
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
-    driver.set_page_load_timeout(12)
-
-    kept = 0
+    driver = make_driver()
+    kept, restarts = 0, 0
     for i, u in enumerate(todo):
         with open(ATTEMPTED, 'a') as f:
             f.write(u + '\n')
@@ -83,9 +94,19 @@ if __name__ == '__main__':
         if row:
             rows.append(row)
             kept += 1
+        if (not row and not alive(driver)) or (i + 1) % 60 == 0:
+            try:
+                driver.quit()
+            except Exception:
+                pass
+            driver = make_driver()
+            restarts += 1
         if (i + 1) % 20 == 0:
             pd.DataFrame(rows).to_csv(OUT_CSV, index=False)
-            print(f'{i + 1}/{len(todo)} tried, kept {kept}')
-    driver.quit()
+            print(f'{i + 1}/{len(todo)} tried, kept {kept}, browser restarts {restarts}')
+    try:
+        driver.quit()
+    except Exception:
+        pass
     pd.DataFrame(rows).to_csv(OUT_CSV, index=False)
     print('Done. Kept', kept, 'of', len(todo), '| totals:', pd.DataFrame(rows)['label'].value_counts().to_dict())
