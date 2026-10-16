@@ -1,0 +1,4 @@
+model,English accuracy,English pages,Non-English accuracy,Non-English pages
+Text only,0.832,280,0.629,116
+Image only (CLIP),0.825,280,0.784,116
+"Fused (stacked, host-only URL)",0.879,280,0.784,116
