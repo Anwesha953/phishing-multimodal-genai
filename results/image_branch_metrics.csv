@@ -1,2 +1,2 @@
 model,accuracy,accuracy_std,f1,images
-Image-only ResNet18 features + Logistic Regression (5-fold grouped CV),0.679411402503104,0.029348826745989806,0.6792417932151718,396
+Image-only CLIP ViT-B/32 + Logistic Regression (5-fold grouped CV),0.8128483683911056,0.02733463508764274,0.8130550168418903,396
