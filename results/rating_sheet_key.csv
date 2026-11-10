@@ -1,0 +1,11 @@
+url,label,predicted,explanation
+https://www.solarservicehouse.com,phishing,legit,"Judged legitimate (71% confident), mainly because of the page text (46% of the evidence) and the URL structure (31%); the page screenshot pointed the other way."
+https://www.gvr.org.nz,legit,legit,"Judged legitimate (87% confident), mainly because of the page screenshot (61% of the evidence) and the page text (33%)."
+https://app.hubspot.com/login?loginRedirectUrl=https%3A%2F%2Fapp.hubspot.com%2Fcontent-tools-menu%2Fapi%2Fv1%2Ftools-menu%2Flogin-verify%3Fredirect%3Dhttps%253A%252F%252Fhttpswwwcanvacom-48026593.hubspotpagebuilder.com%252F-temporary-slug-c5a41cbc-a0b5-47f6-aa20-1c823ee41df1%253Fhs_preview%253DHgpZjRZM-182436115033%2526%26portalId%3D48026593,phishing,phishing,"Flagged as phishing (91% confident), mainly because of the page screenshot (93% of the evidence) and the page text (4%); the URL structure pointed the other way."
+https://login-drivers.com/,phishing,phishing,"Flagged as phishing (93% confident), mainly because of the URL structure (58% of the evidence) and the page screenshot (31%)."
+https://www.bgu.ac.in,legit,legit,"Judged legitimate (99% confident), mainly because of the page screenshot (62% of the evidence) and the page text (27%)."
+https://pub-3822f8b720e247fc984802a18fb3e5b5.r2.dev/index.html,phishing,phishing,"Flagged as phishing (96% confident), mainly because of the page screenshot (47% of the evidence) and the URL structure (40%)."
+https://snapto.link/securityupdates,phishing,phishing,"Flagged as phishing (77% confident), mainly because of the page screenshot (46% of the evidence) and the page text (21%); the URL structure pointed the other way."
+https://www.city.odate.lg.jp,legit,phishing,"Flagged as phishing (54% confident), mainly because of the URL structure (49% of the evidence); the page screenshot and the page text pointed the other way."
+https://www.iwinetc.com,legit,legit,"Judged legitimate (88% confident), mainly because of the page screenshot (72% of the evidence) and the URL structure (14%)."
+https://atlanticunionbank.upstart.com/login-v1,phishing,phishing,"Flagged as phishing (99% confident), mainly because of the URL structure (55% of the evidence) and the page screenshot (41%)."
