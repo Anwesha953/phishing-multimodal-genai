@@ -1,0 +1,5 @@
+model,accuracy,precision,recall,f1,auc
+URL structure only (host),0.763,0.786,0.722,0.753,0.775
+Page text only,0.773,0.797,0.732,0.763,0.852
+Screenshot only (CLIP),0.813,0.826,0.793,0.809,0.892
+"Fused (all three, ours)",0.851,0.884,0.808,0.844,0.92
